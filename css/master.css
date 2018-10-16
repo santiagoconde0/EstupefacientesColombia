@@ -1,4 +1,39 @@
 #dashboard {
-    width: 95%;
-    margin: auto;
+  width: 95%;
+  margin: auto;
+}
+
+.pie {
+  margin: 20px;
+}
+
+.pie text {
+  font-family: "Verdana";
+  fill: #888;
+}
+
+.pie .name-text {
+  font-size: 1.3em;
+}
+
+.mpio {
+  fill: #ddc;
+}
+
+.mpio._44279 {
+  fill: #fff;
+}
+
+.mpio-borde {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+  stroke-width: 0.5;
+}
+
+.depto-borde {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+  stroke-width: 1;
 }
