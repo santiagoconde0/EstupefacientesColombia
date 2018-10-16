@@ -13,5 +13,10 @@ Realizar una visualizacion
 * Javascript
 * D3
 * Bootstrap
+* TopoJSON
+
+#Recursos utilizados 
+
+* https://github.com/finiterank/mapa-colombia-js
 
 by Santiago Suárez Conde
