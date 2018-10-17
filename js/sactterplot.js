@@ -1,5 +1,5 @@
  // margenes
- margin = {
+var margin = {
      top: 20,
      right: 30,
      bottom: 30,
@@ -40,7 +40,7 @@
      })
      .sortKeys(d3.ascending)
      .entries(data);
-   console.log("Nested data: ", nested_data);
+   // console.log("Nested data: ", nested_data);
    // var nestTotal = nested_data.map(d => d.value);
    // console.log("nestTotal: ", nestTotal);
    // console.log("TOTAL: ", nestTotal.reduce((a, b) => a + b, 0));
@@ -60,7 +60,7 @@
 
    // meses posibles
    const months = d3.extent(orderByMonth, d => parseTimeMonth(d.key));
-   console.log("Extend months: ", months);
+   // console.log("Extend months: ", months);
 
    // filtered by months
    var fixOrderByMonth = d3.nest()
@@ -76,7 +76,7 @@
 
    var min = d3.min(fixOrderByMonth, d => +d.value),
      max = d3.max(fixOrderByMonth, d => +d.value);
-   console.log("Cantidad minima: " + min + " y Cantidad maxima: " + max);
+   // console.log("Cantidad minima: " + min + " y Cantidad maxima: " + max);
 
    // Escala eje Y
    y = d3.scaleLinear()
@@ -100,13 +100,13 @@
 
 
    var fixed = orderByMonth.map(d => x(parseTimeMonth(d.key)))
-   console.log("Fixed: ", fixed);
+   // console.log("Fixed: ", fixed);
    var nestTotal234 = fixed.map(d => d.value);
-   console.log("TOTAL: ", nestTotal234.reduce((a, b) => a + b, 0));
+   // console.log("TOTAL: ", nestTotal234.reduce((a, b) => a + b, 0));
 
 
    var fixed2 = orderByMonth.map(d => y(+d.value))
-   console.log("Fixed: ", fixed2);
+   // console.log("Fixed: ", fixed2);
 
    // agregar linea
    var line = d3
