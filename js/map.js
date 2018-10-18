@@ -49,6 +49,11 @@ d3.json("data/colombia-municipios.json", function(error, co) {
     })
     .attr("d", path)
     .style("fill", "#ddc");
+
+    svg.append("path")
+.datum(topojson.mesh(co, co.objects.depts, function(a, b) { return a !== b; }))
+.attr("d", path)
+.attr("class", "depto-borde");
 });
 
 
@@ -72,16 +77,25 @@ d3.csv("/data/OLD/2016.csv", function(error, data) {
   var departamentos = nested_data.map(d => d.key);
   console.log("Departamentos: ", departamentos);
 
+  var min = d3.min(nested_data, d => d.values);
+  console.log("min: ", min);
+  var max = d3.max(nested_data, d => d.values);
+  console.log("max: ", max);
 
+
+  var x = d3.scale.linear()
+      .domain([min, max])
+      .range([0, 1]);
+
+      var yellow = d3.interpolateYlGn(0.5), // "rgb(255, 255, 229)"
+          yellowGreen = d3.interpolateYlGn(0.5), // "rgb(120, 197, 120)"
+          green = d3.interpolateYlGn(1); // "rgb(0, 69, 41)"
 
   nested_data.forEach(function(d) {
     console.log("El departamento es: " + d.key);
+    console.log("Valor de x:" , d.values);
+    console.log("Valor de x:" , x(d.values));
     d3.select("." + d.key)
-      .style("fill", "red");
+      .style("fill", d3.interpolateBlues(x(d.values)));
   });
-
-
-  d3.select(".SANTANDER")
-    .style("fill", "red");
-
 });

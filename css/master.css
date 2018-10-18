@@ -16,6 +16,9 @@
   font-size: 1.3em;
 }
 
-/* .AMAZONAS {
-  fill: #ddc;
-}  */
+
+.depto-borde {
+  fill: none;
+  stroke: gray;
+  stroke-linejoin: round;
+  stroke-width: 1;}
