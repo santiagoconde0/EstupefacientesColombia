@@ -42,7 +42,7 @@ var svg = d3
   .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("/data/OLD/2016.csv").then(data => {
+d3.csv("https://raw.githubusercontent.com/santiagoconde0/EstupefacientesColombia/master/data/2016.csv").then(data => {
 
   // Nest de los datos
   var nested_data = d3.nest()
@@ -101,15 +101,15 @@ svg.append("text")
 });
 
 
-var files = ["/data/OLD/2010.csv",
-"/data/OLD/2011.csv",
-"/data/OLD/2012.csv",
-"/data/OLD/2013.csv",
-"/data/OLD/2014.csv",
-"/data/OLD/2015.csv",
-"/data/OLD/2016.csv",
-"/data/OLD/2017.csv",
-"/data/OLD/2018.csv"];
+var files = ["https://raw.githubusercontent.com/santiagoconde0/EstupefacientesColombia/master/data/2010.csv",
+"https://raw.githubusercontent.com/santiagoconde0/EstupefacientesColombia/master/data/2011.csv",
+"https://raw.githubusercontent.com/santiagoconde0/EstupefacientesColombia/master/data/2012.csv",
+"https://raw.githubusercontent.com/santiagoconde0/EstupefacientesColombia/master/data/2013.csv",
+"https://raw.githubusercontent.com/santiagoconde0/EstupefacientesColombia/master/data/2014.csv",
+"https://raw.githubusercontent.com/santiagoconde0/EstupefacientesColombia/master/data/2015.csv",
+"https://raw.githubusercontent.com/santiagoconde0/EstupefacientesColombia/master/data/2016.csv",
+"https://raw.githubusercontent.com/santiagoconde0/EstupefacientesColombia/master/data/2017.csv",
+"https://raw.githubusercontent.com/santiagoconde0/EstupefacientesColombia/master/data/2018.csv"];
 
 Promise.all(files.map(url => d3.csv(url))).then(function(data) {
     console.log(data);

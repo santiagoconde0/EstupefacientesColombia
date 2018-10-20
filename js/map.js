@@ -6,7 +6,7 @@ ogr2ogr -f GeoJSON depts.json depto.shp -s_srs EPSG:26986 -t_srs EPSG:4326
 topojson --id-property NOMBRE_DPT -p name=NOMBRE_DPT -p name -o colombia-departamentos.json depts.json
 */
 
-d3.json("data/colombia-municipios.json", function(error, co) {
+d3.json("https://raw.githubusercontent.com/santiagoconde0/EstupefacientesColombia/master/data/colombia-municipios.json", function(error, co) {
 
   //crea el SVG
   var svg = d3.select("#target3")
@@ -58,7 +58,7 @@ d3.json("data/colombia-municipios.json", function(error, co) {
 
 
 
-d3.csv("/data/OLD/2018.csv", function(error, data) {
+d3.csv("https://github.com/santiagoconde0/EstupefacientesColombia/blob/master/data/2018.csv", function(error, data) {
   console.log("DATA: ", data);
 
   // Nest de los datos

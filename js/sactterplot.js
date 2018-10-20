@@ -21,7 +21,7 @@ var parseTime = d3.timeParse("%m/%d/%Y"),
 
 
 // Llamar data
-d3.csv("/data/OLD/2017.csv").then(data => {
+d3.csv("https://github.com/santiagoconde0/EstupefacientesColombia/blob/master/data/2017.csv").then(data => {
 
   // crear de nuevo el div que contiene la visualización
   d3.select('#target1')

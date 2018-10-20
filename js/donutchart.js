@@ -1,4 +1,4 @@
-d3.csv("/data/OLD/2017.csv").then(data => {
+d3.csv("https://raw.githubusercontent.com/santiagoconde0/EstupefacientesColombia/master/data/2017.csv").then(data => {
 
   // crear de nuevo el div que contiene la visualización
   d3.select('#target2')
@@ -120,7 +120,7 @@ function updatePie() {
   console.log("YEAR: ", year);
 
 
-  d3.csv("/data/OLD/201" + year + ".csv").then(data => {
+  d3.csv("https://raw.githubusercontent.com/santiagoconde0/EstupefacientesColombia/master/data/201" + year + ".csv").then(data => {
     // console.log("DATA: ", data);
 
     // Nest de los datos
