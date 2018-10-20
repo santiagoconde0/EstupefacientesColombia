@@ -3,17 +3,13 @@
   margin: auto;
 }
 
-.pie {
-  margin: 20px;
-}
-
 .pie text {
   font-family: "Verdana";
   fill: #888;
 }
 
 .pie .name-text {
-  font-size: 1.3em;
+  font-size: 1em;
 }
 
 

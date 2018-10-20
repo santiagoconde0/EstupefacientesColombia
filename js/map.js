@@ -48,7 +48,7 @@ d3.json("data/colombia-municipios.json", function(error, co) {
 
     })
     .attr("d", path)
-    .style("fill", "#ddc");
+    .style("fill", "#f0f6fd");
 
     svg.append("path")
 .datum(topojson.mesh(co, co.objects.depts, function(a, b) { return a !== b; }))
@@ -58,7 +58,7 @@ d3.json("data/colombia-municipios.json", function(error, co) {
 
 
 
-d3.csv("/data/OLD/2016.csv", function(error, data) {
+d3.csv("/data/OLD/2018.csv", function(error, data) {
   console.log("DATA: ", data);
 
   // Nest de los datos
@@ -87,11 +87,12 @@ d3.csv("/data/OLD/2016.csv", function(error, data) {
       .domain([min, max])
       .range([0, 1]);
 
-      var yellow = d3.interpolateYlGn(0.5), // "rgb(255, 255, 229)"
-          yellowGreen = d3.interpolateYlGn(0.5), // "rgb(120, 197, 120)"
-          green = d3.interpolateYlGn(1); // "rgb(0, 69, 41)"
 
-  nested_data.forEach(function(d) {
+var filter = nested_data.filter(function(d) { return d.key != ""; });
+
+console.log("VAR: " , filter);
+
+  filter.forEach(function(d) {
     console.log("El departamento es: " + d.key);
     console.log("Valor de x:" , d.values);
     console.log("Valor de x:" , x(d.values));

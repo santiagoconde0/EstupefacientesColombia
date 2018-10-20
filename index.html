@@ -8,12 +8,12 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 
-<body>
+<body onload="uploadLineValue();">
 
   <!-- Barra de navegacion -->
 
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-    <h5 class="my-0 mr-md-auto font-weight-normal">Incautación de estupefacientes en Colombia</h5>
+    <h4 class="my-0 mr-md-auto font-weight-normal">Incautación de estupefacientes en Colombia</h4>
     <nav class="my-2 my-md-0 mr-md-3">
       <a class="p-2 text-dark" href="/index.html">Visualization</a>
       <a class="p-2 text-dark" href="/tamara.html">Tamara</a>
@@ -27,73 +27,111 @@
   <div id="dashboard">
 
     <div class="row">
-      <div class="col-xl-8">
-        <div class="card m-b-30">
+      <!-- columna para el Scatterplot -->
+      <div class="col" id="col1">
+        <div class="card m-b-30" style="height: 100%">
           <div class="card-body">
-            <h4 class="mt-0 header-title">Scatterplot</h4>
-            <!-- <div id="morris-area-example" style="height: 300px"> -->
-            <div id="target1">
+            <div class="container">
+              <hr>
 
+              <div class="row">
+                <div class="col">
+                  <div id="comparar" style="display: none">
+                    <button type="button" class="btn btn-outline-secondary" onclick="comparar()"> Comparar</button>
+                    <div class="col">
+                      <div class="container" align="right">
+                        <select id="dropdown" onchange="updateData()">
+                          <option value="8">2018</option>
+      <option value="7" selected>2017</option>
+    <option value="6">2016</option>
+    <option value="5">2015</option>
+    <option value="4">2014</option>
+    <option value="3">2013</option>
+    <option value="2">2012</option>
+    <option value="1">2011</option>
+    <option value="0">2010</option>
+    </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="detallar">
 
-            </div>
+                    <button type="button" class="btn btn-outline-secondary" id="detallar" onclick="detallar()">Detallar</button>
 
-          </div>
-        </div>
-      </div>
+                  </div>
+                </div>
 
-      <div class="col-xl-4">
-        <div class="card m-b-30">
-          <div class="card-body">
-            <h4 class="mt-0 header-title">Donut Chart
-            </h4>
-            <div id="morris-bar-example" style="height: 300px">
-              <div id="target2" align= "center"></div>
-            </div>
-          </div>
-        </div>
-        <div class="card m-b-30">
-          <div class="card-body">
-            <h4 class="mt-0 header-title">MAP
-            </h4>
-            <div id="morris-bar-example" style="height: 300px">
-              <iframe src="test.html" align="center"></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <br>
-    <!-- <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="card m-b-90">
-            <div class="card-body">
-              <h4 class="mt-0 header-title">Info</h4>
-              <div id="morris-area-example" style="height: 80px">
-                <div id="target3"></div>
               </div>
+              <br>
+              <div id="slider">
+                Comparabdo desde el año 2017 hasta 201<label for="slYear" id="lbYear">6</label> <br>
+                <input type="range" style="width:500px" id="slYear" value=6 min=0 max=7 class="slider" oninput="document.getElementById('lbYear').textContent =this.value" onchange="uploadLineValue()"> </input>
+              </div>
+              <div id="target1" style="display: none">
+              </div>
+
+              <div class="row">
+
+                <div class="col">
+                  <div id="target3"></div>
+                </div>
+                <div class="col" id="labels"></div>
+
+              </div>
+
             </div>
+
           </div>
         </div>
       </div>
-    </div> -->
-  </div>
 
-  <footer>
-    <div align="center">
-      <small class="d-block mb-3 text-muted">&copy; Santiago Suárez Conde</small>
+
+      <div class="col-xl-4" id="col2" style="display: none">
+
+        <!-- columna para el donutchart -->
+        <div class="card m-b-30">
+          <div class="card-body">
+            <div id="morris-bar-example" style="height: 250px">
+              <div id="target2" align="center"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna para el mapa -->
+        <div class="card m-b-30">
+          <div class="card-body">
+            <div id="morris-bar-example" style="height: 350px" align="center">
+              <!-- iframe para embeber el mapa -->
+              <!-- <iframe src="map.html" align="center" width ="100%" height = "100%" scrolling="no" frameBorder="0" ></iframe> -->
+
+              <img src="img\2017.PNG" align = "center" height = "100%" id="map" >
+            </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <br>
+
+      <footer>
+        <div align="center">
+          <small class="d-block mb-3 text-muted">&copy; Santiago Suárez Conde</small>
+        </div>
+      </footer>
+
+
+
+
+
     </div>
-  </footer>
 
-
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="js\main.js"></script>
-  <script src="js\sactterplot.js"></script>
-  <script src="js\donutchart.js"></script>
-  <!-- <script src="js\map.js"></script> -->
-  <script src="http://d3js.org/topojson.v1.min.js"></script>
-  <!-- <script src="/js/map.js" charset="utf-8"></script> -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="js\main.js"></script>
+    <script src="js\sactterplot.js"></script>
+    <script src="js\donutchart.js"></script>
+    <script src="js\compare.js"></script>
 
 </body>
 
