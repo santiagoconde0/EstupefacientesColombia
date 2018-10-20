@@ -174,7 +174,7 @@ function updateData() {
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  d3.csv("/data/OLD/201" + year + ".csv").then(data => {
+  d3.csv("https://github.com/santiagoconde0/EstupefacientesColombia/blob/master/data/201" + year + ".csv").then(data => {
 
     // Nest de los datos
     var nested_data = d3.nest()
